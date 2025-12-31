@@ -59,8 +59,11 @@ const PromptBox = ({ setIsLoading, isLoading }) => {
                 prompt,
             })
 
+            console.log("the data is ", data);
+
             if (!data.success) {
-                toast.error(data.message)
+                // toast.error(data.message)
+                toast.error("the server is down 2")
                 setPrompt(promptCopy)
                 return
             }
@@ -106,7 +109,8 @@ const PromptBox = ({ setIsLoading, isLoading }) => {
                 }, index * 80)
             })
         } catch (err) {
-            toast.error(err.message)
+            // toast.error(err.message)
+            toast.error("the server is down")
             setPrompt(promptCopy)
         } finally {
             setIsLoading(false)

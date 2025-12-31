@@ -33,7 +33,8 @@ export const AppContextProvider = ({ children }) => {
 
             fetchUsersChats()
         } catch (err) {
-            toast.error(err.message)
+            // toast.error(err.message)
+            toast.error("the server is down 3")
         }
     }
 
@@ -41,7 +42,7 @@ export const AppContextProvider = ({ children }) => {
         try {
             const token = await getToken()
 
-            const { data } = await axios.post(
+            const { data } = await axios.get(
                 "/api/chat/get",
                 {},
                 {
@@ -52,7 +53,8 @@ export const AppContextProvider = ({ children }) => {
             )
 
             if (!data.success) {
-                toast.error(data.message)
+                // toast.error(data.message)
+                toast.error("the server is down 4")
                 return
             }
 
@@ -68,7 +70,8 @@ export const AppContextProvider = ({ children }) => {
                 setSelectedChat(sortedChats[0])
             }
         } catch (err) {
-            toast.error(err.message)
+            // toast.error(err.message)
+            toast.error("the server is down 5")
         }
     }
 
